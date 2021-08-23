@@ -1,30 +1,27 @@
-let date = new Date();
-let weekDay = date.getDay();
-let hour    = date.getHours();
-let minute  = date.getMinutes();
-let second  = date.getSeconds();
+let savol = confirm(`Bu son topish o'yini, men 20gacha bo'lgan son o'yladim,Agar rozi bo'lsangiz boshladik`);
+if(!savol) {
+    window.location.href='https://fulfiledu.uz/';
+}
 
-let weekDays = [
-    "Dushanba",
-    "Seshanba",
-    "Chorshanba",
-    "Payshanba",
-    "Juma",
-    "Shanba",
-    "Yakshanba",
-];
+let urinish = 0;
+let number = Math.round(Math.random() * 20);
 
-let newHour = 0;
-let times = 0;
-if(hour < 12) {
-     newHour = hour;
-     times = "AM";
-}else {
-     newHour = hour - 12;
-     times = "PM";
-};
+let youNumber = prompt(`Son kiriting`);
 
-let time = `Today is : ${weekDays[weekDay - 1]} 
-     Current Time is ${newHour} ${times}:${minute}:${second}`;
+if(Number(youNumber) != youNumber) {
+    youNumber = prompt(`Son kiriting`);
+    urinish += 1;
+}
+while(true) {
+    if(youNumber > number) {
+        youNumber = prompt(`Men o'ylagan son ${youNumber} dan kichik,:\n\n qayta urinib ko'ring`);
+        urinish += 1;
+    }
+    if(youNumber < number) {
+        youNumber = prompt(`Men o'ylagan son ${youNumber} dan katta,:\n\n qayta urinib ko'ring`);
+        urinish += 1;
+    }else
+        break
+}
 
-alert(time);
+alert(`Tabriklayman siz men o'ylagan ${number} sonini topdingiz,siz meni ${urinish} ta urinishda yutdingiz`);
